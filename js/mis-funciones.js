@@ -1,3 +1,10 @@
-$("#item-1").click(function(){
-	alert("Checkbox 1 clicked");
-});
+
+function activateCheck(){
+	if()
+}
+
+function main(){
+	alert("jquery workig");
+}
+
+$(document).ready(main());

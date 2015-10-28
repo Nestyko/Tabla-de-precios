@@ -27,19 +27,61 @@
           <th>Imagen</th>
           <th>Descripcción</th>
           <th>Cantidad</th>
-          <th>Precio</th>
+          <th>Precio unitario</th>
           <th>Sub-total</th>
         </tr>
         <tr>
           <td>
             <div class="checkbox">
               <label>
-                <input type="checkbox" id="item-1">
+                <input type="checkbox" id="item-1" onchange="activateCheck(this);">
               </label>
             </div>
           </td>
           <td>
-            
+            <img src="img/ferrari-logo.jpg" alt="ferrari-logo" class="img-circle imagen-articulo">
+          </td>
+          <td>
+            <ul>
+              <li><strong>Origen: </strong>Italia</li>
+              <li><strong>Estilos:</strong>Deportivo y de carreras</li>
+            </ul>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="cantidad-item-1" placeholder="0" onchange="getSubtotal(this);">
+          </td>
+          <td>
+            <h2 class="text-align-center" id="precio-item-1">700000</h2>
+          </td>
+          <td>
+            <h2 id="subtotal-item-1"></h2>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="item-2" onchange="activateCheck(this);">
+              </label>
+            </div>
+          </td>
+          <td>
+            <img src="img/Lamborghini_logo.svg" alt="lamborghini-logo" class="img-circle imagen-articulo">
+          </td>
+          <td>
+            <ul>
+              <li><strong>Origen: </strong>Italia</li>
+              <li><strong>Estilos:</strong>Deportivo y de carreras</li>
+            </ul>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="cantidad-item-2" placeholder="0" onchange="getSubtotal(this);">
+          </td>
+          <td>
+            <h2 class="text-align-center" id="precio-item-2">500000</h2>
+          </td>
+          <td>
+            <h2 id="subtotal-item-2"></h2>
           </td>
         </tr>
       </table>
@@ -47,10 +89,33 @@
     
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="mis-funciones.js"></script>
+   <script type="text/javascript">
+      
+
+      function getSubtotal(element){
+        var precios = [700000, 500000, 1000000];
+        var cantidad = element.value;
+        var id = element.id;
+        id = id.substring(id.length-1,id.length);
+        var precio = precios[id-1];
+        var subtotal = cantidad*precio;
+        var newId = "subtotal-item-" + id;
+        document.getElementById(newId).innerHTML = subtotal;
+      }
+      function activateCheck(elem){
+        
+      }
+      function main(){
+        $('checkbox').change(function() {
+          alert("Checkbox clicked");
+        });
+      }
+
+      $(document).ready(main());
+   </script>
   </body>
 </html>

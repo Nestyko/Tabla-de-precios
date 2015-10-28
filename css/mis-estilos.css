@@ -2,3 +2,9 @@
 	margin: auto;
 	padding: auto;
 }
+
+.imagen-articulo{
+	margin-left: auto;
+	width: 100px;
+	height: 80px;
+}
