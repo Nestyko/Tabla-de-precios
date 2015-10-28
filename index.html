@@ -54,7 +54,7 @@
             <h2 class="text-align-center" id="precio-item-1">700000</h2>
           </td>
           <td>
-            <h2 id="subtotal-item-1"></h2>
+            <h2 id="subtotal-item-1">0</h2>
           </td>
         </tr>
         <tr>
@@ -81,7 +81,7 @@
             <h2 class="text-align-center" id="precio-item-2">500000</h2>
           </td>
           <td>
-            <h2 id="subtotal-item-2"></h2>
+            <h2 id="subtotal-item-2">0</h2>
           </td>
         </tr>
       </table>
@@ -118,21 +118,19 @@
         var sumatoria = 0;
         for( var i = 1; i <= 2; i ++){
           var id =  "subtotal-item-" + i;
-          alert(id);
           var precio = document.getElementById(id).innerHTML;
           precio = parseInt(precio);
           if(precio == NaN){
             precio = 0;
           }
-          sumatoria += precio;
+          var newid = "item-" + i;
+          if(document.getElementById(newid).checked){
+            sumatoria += precio;
+          }
         }
-        alert("sumatoria: " + sumatoria)
         document.getElementById("total-factura").innerHTML = sumatoria;
       }
       function main(){
-        $('checkbox').change(function() {
-          alert("Checkbox clicked");
-        });
       }
 
       $(document).ready(main());
