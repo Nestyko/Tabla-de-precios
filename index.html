@@ -85,6 +85,14 @@
           </td>
         </tr>
       </table>
+      <input class="btn btn-default" type="submit" value="Facturar" onclick="hacerFactura();">
+      <br/><br/><br/>
+      <table class="table table-bordered" >
+        <tr>
+          <th>Total: </th>
+          <td id="total-factura"></td>
+        </tr>
+      </table>
     </div>
     
 
@@ -106,8 +114,20 @@
         var newId = "subtotal-item-" + id;
         document.getElementById(newId).innerHTML = subtotal;
       }
-      function activateCheck(elem){
-        
+      function hacerFactura(){
+        var sumatoria = 0;
+        for( var i = 1; i <= 2; i ++){
+          var id =  "subtotal-item-" + i;
+          alert(id);
+          var precio = document.getElementById(id).innerHTML;
+          precio = parseInt(precio);
+          if(precio == NaN){
+            precio = 0;
+          }
+          sumatoria += precio;
+        }
+        alert("sumatoria: " + sumatoria)
+        document.getElementById("total-factura").innerHTML = sumatoria;
       }
       function main(){
         $('checkbox').change(function() {
