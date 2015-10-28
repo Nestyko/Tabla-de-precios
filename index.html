@@ -102,8 +102,22 @@
     <script src="js/bootstrap.min.js"></script>
 
    <script type="text/javascript">
-      
 
+      function getElementNum(element){
+        var id = element.id;
+        id = id.substring(id.length-1,id.length);
+        return id;
+      }
+      
+      function activateCheck(element){
+        if(element.checked){
+          var id = "cantidad-item-" + getElementNum(element);
+          if(document.getElementById(id).value < 1){
+            document.getElementById(id).value = 1;
+            getSubtotal(document.getElementById(id));
+          }
+        }
+      }
       function getSubtotal(element){
         var precios = [700000, 500000, 1000000];
         var cantidad = element.value;
