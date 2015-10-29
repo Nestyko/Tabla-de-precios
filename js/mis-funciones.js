@@ -1,7 +1,5 @@
 
 var precios = [700000, 500000, 1000000],
-		button_one = $("[name = 'btn-one']"),
-		button_two = $("[name = 'btn-two']"),
 		quantity = $('.quantity'),
 		sub_total = $('.sub-total');
 
