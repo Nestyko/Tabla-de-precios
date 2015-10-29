@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Tabla de Compras</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/mis-estilos.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tabla de Compras</h1>
+      <table class="table table-bordered">
+        <tr>
+          <th>Selección</th>
+          <th>Imagen</th>
+          <th>Descripcción</th>
+          <th>Cantidad</th>
+          <th>Precio unitario</th>
+          <th>Sub-total</th>
+        </tr>
+        <tr>
+          <td>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="item-1" onchange="activateCheck(this);">
+              </label>
+            </div>
+          </td>
+          <td>
+            <img src="img/ferrari-logo.jpg" alt="ferrari-logo" class="img-circle imagen-articulo">
+          </td>
+          <td>
+            <ul>
+              <li><strong>Origen: </strong>Italia</li>
+              <li><strong>Estilos:</strong>Deportivo y de carreras</li>
+            </ul>
+          </td>
+          <td>
+            <!-- Esto es mala praxis, tu HTML no debe contener mas que la estructura de la aplicacion-->
+            <!-- Colocar handlers para acciones dentro de tu html debe ser evitado siempre que haya manera de resolver problemas de retrocompatibilidad -->
+
+            <!--<input type="text" class="form-control" id="cantidad-item-1" placeholder="0" onchange="getSubtotal(this);">-->
+              <input type="number" min="0" class="form-control quantity" placeholder="0" data-index="0">
+              <input type="button" name="btn-one" value="calcular" class="btn btn-primary">
+          </td>
+          <td>
+            <h2 class="text-align-center" id="precio-item-1">700000</h2>
+          </td>
+          <td>
+            <!--Vamos a utilizar la clase sub-total para generalizar la solucion al problema, lee los comentarios en el js para saber como funciona-->
+            <h2 class="sub-total">0</h2>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="item-2" onchange="activateCheck(this);">
+              </label>
+            </div>
+          </td>
+          <td>
+            <img src="img/Lamborghini_Logo.svg" alt="lamborghini-logo" class="img-circle imagen-articulo">
+          </td>
+          <td>
+            <ul>
+              <li><strong>Origen: </strong>Italia</li>
+              <li><strong>Estilos:</strong>Deportivo y de carreras</li>
+            </ul>
+          </td>
+          <td>
+            <!-- input numerico para evitar errores de calculo-->
+            <!-- Añadimos un atributo personalizado para ayudarnos a calcular dinamicamente-->
+            <!-- Estos atributos se definen: data-[nombre del atributo] -->
+              <input type="number" min="0" class="form-control quantity" placeholder="0" data-index="1">
+              <input type="button" name="btn-two" value="calcular" class="btn btn-primary">
+          </td>
+          <td>
+            <h2 class="text-align-center" id="precio-item-2">500000</h2>
+          </td>
+          <td>
+            <h2 class="sub-total">0</h2>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+   <script src="js/mis-funciones.js"></script>
+  </body>
+</html>
