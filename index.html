@@ -30,11 +30,11 @@
           <th>Precio unitario</th>
           <th>Sub-total</th>
         </tr>
-        <tr>
+        <tr class="row">
           <td>
             <div class="checkbox">
               <label>
-                <input type="checkbox" id="item-1" onchange="activateCheck(this);">
+                <input type="checkbox" id="item-1">
               </label>
             </div>
           </td>
@@ -61,12 +61,12 @@
           <td>
             <div class="checkbox">
               <label>
-                <input type="checkbox" id="item-2" onchange="activateCheck(this);">
+                <input type="checkbox" id="item-2">
               </label>
             </div>
           </td>
           <td>
-            <img src="img/Lamborghini_logo.svg" alt="lamborghini-logo" class="img-circle imagen-articulo">
+            <img src="img/Lamborghini_Logo.svg" alt="lamborghini-logo" class="img-circle imagen-articulo">
           </td>
           <td>
             <ul>
@@ -87,20 +87,22 @@
       </table>
       <input class="btn btn-default" type="submit" value="Facturar" onclick="hacerFactura();">
       <br/><br/><br/>
-      <table class="table table-bordered" >
+      <table class="table table-bordered" id="tabla-factura">
         <tr>
           <th>Total: </th>
           <td id="total-factura"></td>
         </tr>
       </table>
     </div>
-    
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/mis-funciones.js"></script>
+    <!-- Comentar JavaScript
    <script type="text/javascript">
 
       function getElementNum(element){
@@ -108,7 +110,7 @@
         id = id.substring(id.length-1,id.length);
         return id;
       }
-      
+
       function activateCheck(element){
         if(element.checked){
           var id = "cantidad-item-" + getElementNum(element);
@@ -149,5 +151,6 @@
 
       $(document).ready(main());
    </script>
+   -->
   </body>
 </html>
