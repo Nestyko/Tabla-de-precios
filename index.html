@@ -48,13 +48,19 @@
             </ul>
           </td>
           <td>
-            <input type="text" class="form-control" id="cantidad-item-1" placeholder="0" onchange="getSubtotal(this);">
+            <!-- Esto es mala praxis, tu HTML no debe contener mas que la estructura de la aplicacion-->
+            <!-- Colocar handlers para acciones dentro de tu html debe ser evitado siempre que haya manera de resolver problemas de retrocompatibilidad -->
+
+            <!--<input type="text" class="form-control" id="cantidad-item-1" placeholder="0" onchange="getSubtotal(this);">-->
+              <input type="number" class="form-control quantity" placeholder="0">
+              <input type="button" name="btn-one" value="calcular" class="btn btn-primary">
           </td>
           <td>
             <h2 class="text-align-center" id="precio-item-1">700000</h2>
           </td>
           <td>
-            <h2 id="subtotal-item-1">0</h2>
+            <!--Vamos a utilizar la clase sub-total para generalizar la solucion al problema, lee los comentarios en el js para saber como funciona-->
+            <h2 class="sub-total"></h2>
           </td>
         </tr>
         <tr>
@@ -66,7 +72,7 @@
             </div>
           </td>
           <td>
-            <img src="img/Lamborghini_logo.svg" alt="lamborghini-logo" class="img-circle imagen-articulo">
+            <img src="img/Lamborghini_Logo.svg" alt="lamborghini-logo" class="img-circle imagen-articulo">
           </td>
           <td>
             <ul>
@@ -75,79 +81,26 @@
             </ul>
           </td>
           <td>
-            <input type="text" class="form-control" id="cantidad-item-2" placeholder="0" onchange="getSubtotal(this);">
+            <!-- input numerico para evitar errores de calculo-->
+              <input type="number" class="form-control quantity" placeholder="0">
+              <input type="button" name="btn-two" value="calcular" class="btn btn-primary">
           </td>
           <td>
             <h2 class="text-align-center" id="precio-item-2">500000</h2>
           </td>
           <td>
-            <h2 id="subtotal-item-2">0</h2>
+            <h2 class="sub-total"></h2>
           </td>
         </tr>
       </table>
-      <input class="btn btn-default" type="submit" value="Facturar" onclick="hacerFactura();">
-      <br/><br/><br/>
-      <table class="table table-bordered" >
-        <tr>
-          <th>Total: </th>
-          <td id="total-factura"></td>
-        </tr>
-      </table>
     </div>
-    
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.1.4.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
-   <script type="text/javascript">
-
-      function getElementNum(element){
-        var id = element.id;
-        id = id.substring(id.length-1,id.length);
-        return id;
-      }
-      
-      function activateCheck(element){
-        if(element.checked){
-          var id = "cantidad-item-" + getElementNum(element);
-          if(document.getElementById(id).value < 1){
-            document.getElementById(id).value = 1;
-            getSubtotal(document.getElementById(id));
-          }
-        }
-      }
-      function getSubtotal(element){
-        var precios = [700000, 500000, 1000000];
-        var cantidad = element.value;
-        var id = element.id;
-        id = id.substring(id.length-1,id.length);
-        var precio = precios[id-1];
-        var subtotal = cantidad*precio;
-        var newId = "subtotal-item-" + id;
-        document.getElementById(newId).innerHTML = subtotal;
-      }
-      function hacerFactura(){
-        var sumatoria = 0;
-        for( var i = 1; i <= 2; i ++){
-          var id =  "subtotal-item-" + i;
-          var precio = document.getElementById(id).innerHTML;
-          precio = parseInt(precio);
-          if(precio == NaN){
-            precio = 0;
-          }
-          var newid = "item-" + i;
-          if(document.getElementById(newid).checked){
-            sumatoria += precio;
-          }
-        }
-        document.getElementById("total-factura").innerHTML = sumatoria;
-      }
-      function main(){
-      }
-
-      $(document).ready(main());
-   </script>
+   <script src="js/mis-funciones.js"></script>
   </body>
 </html>
