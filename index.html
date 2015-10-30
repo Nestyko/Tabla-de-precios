@@ -18,91 +18,90 @@
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="css/mis-estilos.css">
   </head>
-  <body>
-    <div class="container">
-      <h1>Tabla de Compras</h1>
-      <table class="table table-bordered">
-        <tr>
-          <th>Selección</th>
-          <th>Imagen</th>
-          <th>Descripcción</th>
-          <th>Cantidad</th>
-          <th>Precio unitario</th>
-          <th>Sub-total</th>
-        </tr>
-        <tr>
-          <td>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" id="item-1">
-              </label>
-            </div>
-          </td>
-          <td>
-            <img src="img/ferrari-logo.jpg" alt="ferrari-logo" class="img-circle imagen-articulo">
-          </td>
-          <td>
-            <ul>
-              <li><strong>Origen: </strong>Italia</li>
-              <li><strong>Estilos:</strong>Deportivo y de carreras</li>
-            </ul>
-          </td>
-          <td>
-            <!-- Esto es mala praxis, tu HTML no debe contener mas que la estructura de la aplicacion-->
-            <!-- Colocar handlers para acciones dentro de tu html debe ser evitado siempre que haya manera de resolver problemas de retrocompatibilidad -->
+  <div class="container">
+  <h1>Tabla de Compras</h1>
+  <table class="table table-bordered">
+    <tr>
+      <th>Selección</th>
+      <th>Imagen</th>
+      <th>Descripcción</th>
+      <th>Cantidad</th>
+      <th>Precio unitario</th>
+      <th>Sub-total</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="item-1" data-index="0">
+          </label>
+        </div>
+      </td>
+      <td>
+        <img src="img/ferrari-logo.jpg" alt="ferrari-logo" class="img-circle imagen-articulo">
+      </td>
+      <td>
+        <ul>
+          <li><strong>Origen: </strong>Italia</li>
+          <li><strong>Estilos:</strong>Deportivo y de carreras</li>
+        </ul>
+      </td>
+      <td>
+        <!-- Esto es mala praxis, tu HTML no debe contener mas que la estructura de la aplicacion-->
+        <!-- Colocar handlers para acciones dentro de tu html debe ser evitado siempre que haya manera de resolver problemas de retrocompatibilidad -->
 
-            <!--<input type="text" class="form-control" id="cantidad-item-1" placeholder="0" onchange="getSubtotal(this);">-->
-              <input type="number" min="0" class="form-control quantity" placeholder="0" data-index="0">
+        <!--<input type="text" class="form-control" id="cantidad-item-1" placeholder="0" onchange="getSubtotal(this);">-->
+          <input type="number" min="0" class="form-control quantity" placeholder="0" data-index="0">
 
-          </td>
-          <td>
-            <h2 class="text-align-center" id="precio-item-1">700000</h2>
-          </td>
-          <td>
-            <!--Vamos a utilizar la clase sub-total para generalizar la solucion al problema, lee los comentarios en el js para saber como funciona-->
-            <h2 class="sub-total">0</h2>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" id="item-2">
-              </label>
-            </div>
-          </td>
-          <td>
-            <img src="img/Lamborghini_Logo.svg" alt="lamborghini-logo" class="img-circle imagen-articulo">
-          </td>
-          <td>
-            <ul>
-              <li><strong>Origen: </strong>Italia</li>
-              <li><strong>Estilos:</strong>Deportivo y de carreras</li>
-            </ul>
-          </td>
-          <td>
-            <!-- input numerico para evitar errores de calculo-->
-            <!-- Añadimos un atributo personalizado para ayudarnos a calcular dinamicamente-->
-            <!-- Estos atributos se definen: data-[nombre del atributo] -->
-              <input type="number" min="0" class="form-control quantity" placeholder="0" data-index="1">
+      </td>
+      <td>
+        <h2 class="text-align-center" id="precio-item-1">700000</h2>
+      </td>
+      <td>
+        <!--Vamos a utilizar la clase sub-total para generalizar la solucion al problema, lee los comentarios en el js para saber como funciona-->
+        <h2 class="sub-total">0</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="item-2" data-index="1">
+          </label>
+        </div>
+      </td>
+      <td>
+        <img src="img/Lamborghini_Logo.svg" alt="lamborghini-logo" class="img-circle imagen-articulo">
+      </td>
+      <td>
+        <ul>
+          <li><strong>Origen: </strong>Italia</li>
+          <li><strong>Estilos:</strong>Deportivo y de carreras</li>
+        </ul>
+      </td>
+      <td>
+        <!-- input numerico para evitar errores de calculo-->
+        <!-- Añadimos un atributo personalizado para ayudarnos a calcular dinamicamente-->
+        <!-- Estos atributos se definen: data-[nombre del atributo] -->
+          <input type="number" min="0" class="form-control quantity" placeholder="0" data-index="1">
 
-          </td>
-          <td>
-            <h2 class="text-align-center" id="precio-item-2">500000</h2>
-          </td>
-          <td>
-            <h2 class="sub-total">0</h2>
-          </td>
-        </tr>
-      </table>
-    </div>
+      </td>
+      <td>
+        <h2 class="text-align-center" id="precio-item-2">500000</h2>
+      </td>
+      <td>
+        <h2 class="sub-total">0</h2>
+      </td>
+    </tr>
+  </table>
+</div>
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
 
-   <script src="js/mis-funciones.js"></script>
+<script src="js/mis-funciones.js"></script>
   </body>
 </html>
