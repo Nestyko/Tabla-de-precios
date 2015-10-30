@@ -27,8 +27,10 @@ checkboxes.change(function(){
             getSubtotal(quantity.get(index),index);
         }
         sub_total.eq(index).removeClass("tachado");
+        quantity.eq(index).prop("disabled", false);
     }else{
         sub_total.eq(index).addClass("tachado");
+        quantity.eq(index).prop("disabled", true);
     }
 
 });
