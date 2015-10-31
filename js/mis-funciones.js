@@ -1,12 +1,5 @@
 
-
-function init(){
-    var rows = $("tr").find(".quantity");
-    rows.prop("disabled", true);
-}
-
 function main(){
-    init();
     $("tr").change(function (event){
         var row = $(this);
         var checkbox = row.find("input:checkbox");
@@ -25,6 +18,7 @@ function main(){
         }
         sub_tot.html(quant.val()*price);
     });
+    $("tr").trigger("change");
 
 
 }
