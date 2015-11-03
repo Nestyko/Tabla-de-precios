@@ -1,5 +1,7 @@
 
 function main(){
+
+    //Funcion para cuando cambie cualquier fila
     $("tr").change(function (event){
         var row = $(this);
         var checkbox = row.find("input:checkbox");
@@ -18,7 +20,11 @@ function main(){
         }
         sub_tot.html(quant.val()*price);
     });
+
+    //Forzar a llamar la funcion de cambio de filas, para inicializar
     $("tr").trigger("change");
+
+
 
 
 }
