@@ -9,7 +9,7 @@ function actualizar_factura(){
             subtotal += parseInt(totales[i].innerHTML);
         }
     }
-    if(subtotal === 0){
+    if(subtotal === 0){// Oculta la tabla de factura si el subtotal es igual a 0
         $("#factura").hide(1000);
     }else{
         $("#factura").show(1000);
@@ -42,6 +42,8 @@ function main(){
         actualizar_factura();
     });
 
+    //Esconder la tabla de factura al inicio
+    $("#factura").hide();
     //Forzar a llamar la funcion de cambio de filas, para inicializar
     $("tr").trigger("change");
 
