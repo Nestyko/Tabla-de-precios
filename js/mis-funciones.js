@@ -9,8 +9,14 @@ function actualizar_factura(){
             subtotal += parseInt(totales[i].innerHTML);
         }
     }
-    console.log(subtotal);
+    if(subtotal === 0){
+        $("#factura").hide(1000);
+    }else{
+        $("#factura").show(1000);
+    }
     document.getElementById("sub-total-factura").innerHTML = subtotal;
+    document.getElementById("iva-factura").innerHTML = subtotal*0.12;
+    document.getElementById("total-general-factura").innerHTML = (subtotal*0.12)+subtotal;
 }
 
 function main(){
