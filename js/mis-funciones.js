@@ -1,4 +1,18 @@
 
+var totales = document.getElementsByClassName("sub-total");
+var checkboxes = document.getElementsByClassName("check-item");
+
+function actualizar_factura(){
+    var subtotal = 0;
+    for(var i = 0; i < totales.length;i++){
+        if(checkboxes[i].checked){
+            subtotal += parseInt(totales[i].innerHTML);
+        }
+    }
+    console.log(subtotal);
+    document.getElementById("sub-total-factura").innerHTML = subtotal;
+}
+
 function main(){
 
     //Funcion para cuando cambie cualquier fila
@@ -19,6 +33,7 @@ function main(){
             sub_tot.addClass("tachado");
         }
         sub_tot.html(quant.val()*price);
+        actualizar_factura();
     });
 
     //Forzar a llamar la funcion de cambio de filas, para inicializar
