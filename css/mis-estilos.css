@@ -12,3 +12,8 @@
 .tachado{
     text-decoration: line-through;
 }
+
+.jumbo-img{
+    width: "1000px";
+    height: "700px";
+}
